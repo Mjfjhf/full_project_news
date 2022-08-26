@@ -6,7 +6,6 @@ import 'package:news_app_sunday/shared/network/remot/api_manager.dart';
 
 class GetNewsResponse extends StatelessWidget {
   Sources sources;
-
   GetNewsResponse(this.sources);
 
   @override
@@ -23,6 +22,7 @@ class GetNewsResponse extends StatelessWidget {
             );
           }
           var listOfnews=snap.data?.articles??[];
+          print(listOfnews);
           return ListView.separated(
             separatorBuilder: (context,index){
               return Divider(height: 19,color: Colors.green,thickness: 1,);

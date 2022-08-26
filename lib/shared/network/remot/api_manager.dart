@@ -9,9 +9,10 @@ class ApiManager{
 
   static Future<SourcesResponse> getSourceResponce(String categruID)async{
     var uri= Uri.https("newsapi.org", "/v2/top-headlines/sources",{
-      "apiKey" : "2ed3fc677f6b4cd28045685cff35741d",
-      "category": categruID
+      "apiKey" : "be7fdae95a894a7ab78dc9d0e749a2b9",
+      "category": categruID,
     });
+    print("category id : $categruID");
     var getresponse=await http.get(uri);
     var stringBody=getresponse.body;
     var json=jsonDecode(stringBody);
@@ -21,9 +22,24 @@ class ApiManager{
 
   static Future<NewsResponse> getNewsResponse(Sources sources)async{
     var uri=Uri.https("newsapi.org", "/v2/everything",{
-      "apiKey" : "2ed3fc677f6b4cd28045685cff35741d",
-      "sources": sources.id
+      "apiKey" : "be7fdae95a894a7ab78dc9d0e749a2b9",
+      "sources": sources.id,
+      // "q": search
     });
+
+    var getrespons= await http.get(uri);
+    var stringbody= getrespons.body;
+    var json= jsonDecode(stringbody);
+    var newsResponse= NewsResponse.fromJson(json);
+    return newsResponse;
+  }
+  static Future<NewsResponse> getsearchResponse(String search)async{
+    var uri=Uri.https("newsapi.org", "/v2/everything",{
+      "apiKey" : "be7fdae95a894a7ab78dc9d0e749a2b9",
+      //"sources": sources.id,
+      "q": search
+    });
+
     var getrespons= await http.get(uri);
     var stringbody= getrespons.body;
     var json= jsonDecode(stringbody);
@@ -31,3 +47,5 @@ class ApiManager{
     return newsResponse;
   }
 }
+//be7fdae95a894a7ab78dc9d0e749a2b9
+//2ed3fc677f6b4cd28045685cff35741d

@@ -6,6 +6,7 @@ import 'package:news_app_sunday/shared/network/remot/api_manager.dart';
 
 class NewsFragment extends StatelessWidget {
  CategoryModel categoryModel;
+
  NewsFragment(this.categoryModel);
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,13 @@ class NewsFragment extends StatelessWidget {
               content: Text("There are some error"),
             );
           }
+          if('ok'!= snap.data?.status){
+            Text("Error");
+            print("status is ${snap.data?.status}");
+          }
           var listOfSources=snap.data?.sources??[];
+          print(listOfSources);
+          print("----------------");
           return TabControllerItems(listOfSources);
         });
   }

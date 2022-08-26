@@ -6,7 +6,6 @@ import '../../model/Sources.dart';
 
 class TabControllerItems extends StatefulWidget {
  List<Sources> sources;
-
  TabControllerItems(this.sources);
 
   @override
