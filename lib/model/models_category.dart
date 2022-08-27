@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:news_app_sunday/shared/provider/my_provider.dart';
+import 'package:provider/provider.dart';
+
 
 class CategoryModel{
   String title;
@@ -7,7 +11,6 @@ class CategoryModel{
   Color color;
 
   CategoryModel(this.title, this.imageUrl, this.id, this.color);
-  
   static List<CategoryModel> listOfCategory(){
     return[
     CategoryModel("Sports", "assets/images/sports.png",     "sports", Color(0xffC91C22)),

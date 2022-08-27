@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_sunday/layout/settings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeDrawer extends StatelessWidget {
  Function retuToCategory;
@@ -19,7 +20,7 @@ class HomeDrawer extends StatelessWidget {
            // height: 12,
             alignment: Alignment.center,
             color: Colors.green,
-            child: Text("News App!!",style: TextStyle(
+            child: Text(AppLocalizations.of(context)!.news_app,style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
               fontSize: 27
@@ -35,7 +36,7 @@ class HomeDrawer extends StatelessWidget {
                 SizedBox(width: 10,),
                 Icon(Icons.list,size: 35,),
                 SizedBox(width: 10,),
-                Text("Categories",style: TextStyle(
+                Text(AppLocalizations.of(context)!.categories,style: TextStyle(
                   color: Colors.black,
                   fontSize: 22,
                   fontWeight: FontWeight.bold
@@ -53,7 +54,7 @@ class HomeDrawer extends StatelessWidget {
                 SizedBox(width: 10,),
                 Icon(Icons.settings,size: 35,),
                 SizedBox(width: 10,),
-                Text("Settings",style: TextStyle(
+                Text(AppLocalizations.of(context)!.settings,style: TextStyle(
                     color: Colors.black,
                     fontSize: 22,
                     fontWeight: FontWeight.bold

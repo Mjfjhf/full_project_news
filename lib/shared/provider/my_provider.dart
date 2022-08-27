@@ -11,4 +11,10 @@ class MyProvider extends ChangeNotifier{
     iconData=newIcon;
     notifyListeners();
   }
+
+  String neLang="en";
+  selectlang(String lang){
+    neLang=lang;
+    notifyListeners();
+  }
 }

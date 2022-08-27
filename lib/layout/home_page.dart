@@ -6,7 +6,6 @@ import 'package:news_app_sunday/moduls/page_news/news_fragment.dart';
 import 'package:news_app_sunday/moduls/search/result_search.dart';
 import 'package:news_app_sunday/shared/provider/my_provider.dart';
 import 'package:provider/provider.dart';
-
 import 'home_drawe.dart';
 
 class HomeMainPage extends StatefulWidget {
@@ -33,7 +32,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
 
                   if(pro.iconData==Icons.search){
                     pro.iconData=Icons.close;
-                    pro.title=TextField(
+                    pro.title=TextField( cursorWidth: 5,
                       decoration: InputDecoration(
                         fillColor: Colors.white,
                         filled: true,
@@ -75,7 +74,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
           ],
           backgroundColor: Colors.green,
           centerTitle: true,
-          title: pro.title,
+          title: Container(height:45,child: pro.title),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30)
           ),

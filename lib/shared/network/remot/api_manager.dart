@@ -26,20 +26,31 @@ class ApiManager{
       "sources": sources.id,
       // "q": search
     });
-
     var getrespons= await http.get(uri);
     var stringbody= getrespons.body;
     var json= jsonDecode(stringbody);
     var newsResponse= NewsResponse.fromJson(json);
     return newsResponse;
   }
+  static Future<NewsResponse> getArabNewsResponse(String searchar)async{
+    var uri=Uri.https("newsapi.org", "/v2/everything",{
+      "apiKey" : "be7fdae95a894a7ab78dc9d0e749a2b9",
+      //"sources": sources.id,
+       "q": searchar
+    });
+    var getrespons= await http.get(uri);
+    var stringbody= getrespons.body;
+    var json= jsonDecode(stringbody);
+    var newsResponse= NewsResponse.fromJson(json);
+    return newsResponse;
+  }
+
   static Future<NewsResponse> getsearchResponse(String search)async{
     var uri=Uri.https("newsapi.org", "/v2/everything",{
       "apiKey" : "be7fdae95a894a7ab78dc9d0e749a2b9",
       //"sources": sources.id,
       "q": search
     });
-
     var getrespons= await http.get(uri);
     var stringbody= getrespons.body;
     var json= jsonDecode(stringbody);

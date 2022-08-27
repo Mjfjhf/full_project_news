@@ -3,6 +3,8 @@ import 'package:news_app_sunday/model/NewsResponse.dart';
 import 'package:news_app_sunday/model/Sources.dart';
 import 'package:news_app_sunday/moduls/page_news/items_widget.dart';
 import 'package:news_app_sunday/shared/network/remot/api_manager.dart';
+import 'package:news_app_sunday/shared/provider/my_provider.dart';
+import 'package:provider/provider.dart';
 
 class GetNewsResponse extends StatelessWidget {
   Sources sources;
@@ -10,6 +12,7 @@ class GetNewsResponse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var pro=Provider.of<MyProvider>(context);
     return FutureBuilder<NewsResponse>(
         future: ApiManager.getNewsResponse(sources),
         builder: (context,snap){
@@ -17,6 +20,11 @@ class GetNewsResponse extends StatelessWidget {
             return Center(child: CircularProgressIndicator());
           }
           if(snap.hasError){
+            return AlertDialog(
+              content: Text("There are some error"),
+            );
+          }
+          if("ok" != snap.data?.status){
             return AlertDialog(
               content: Text("There are some error"),
             );

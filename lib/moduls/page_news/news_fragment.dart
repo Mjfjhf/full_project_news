@@ -22,8 +22,9 @@ class NewsFragment extends StatelessWidget {
             );
           }
           if('ok'!= snap.data?.status){
-            Text("Error");
-            print("status is ${snap.data?.status}");
+            return AlertDialog(
+              content: Text("No internet"),
+            );
           }
           var listOfSources=snap.data?.sources??[];
           print(listOfSources);

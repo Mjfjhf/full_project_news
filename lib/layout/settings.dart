@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_sunday/layout/content_of_settings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsPage extends StatelessWidget {
 static const String routeName="setteng";
@@ -12,7 +14,7 @@ static const String routeName="setteng";
               borderRadius: BorderRadius.circular(30)
           ),
           backgroundColor: Colors.green,
-          title: Text('Setting'),
+          title: Text(AppLocalizations.of(context)!.settings),
         ),
       ),
       body: Padding(
@@ -20,7 +22,7 @@ static const String routeName="setteng";
         child: Stack(
           children: [
             Image.asset("assets/images/pattern.png",fit: BoxFit.cover,height: double.infinity,),
-
+            ContentSettings()
           ],
         ),
       ),

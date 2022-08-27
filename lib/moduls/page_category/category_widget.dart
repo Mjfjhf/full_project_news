@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_sunday/model/models_category.dart';
+import 'package:news_app_sunday/shared/provider/my_provider.dart';
+import 'package:provider/provider.dart';
 
 class CategoryItems extends StatelessWidget {
  CategoryModel categoryModel;
@@ -7,6 +9,7 @@ class CategoryItems extends StatelessWidget {
  CategoryItems(this.categoryModel,this.index);
   @override
   Widget build(BuildContext context) {
+    var pro=Provider.of<MyProvider>(context);
     return Container(
       decoration: BoxDecoration(
         color: categoryModel.color,
